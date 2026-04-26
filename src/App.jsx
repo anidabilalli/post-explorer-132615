@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
 import './App.css'
+import PostCard from './components/PostCard'
+
 function App() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,12 +36,7 @@ function App() {
   return <div>
     <h1>Post Explorer</h1>
     {posts.map(post => (
-        <div key={post.id}>
-          <p>ID: {post.id}</p>
-          <p>User ID: {post.userId}</p>
-          <p>Title: {post.title}</p>
-          <p>Body: {post.body}</p>
-        </div>
+        <PostCard key={post.id} post={post} />
     ))}
   </div>
 }
